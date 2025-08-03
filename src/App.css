@@ -1,0 +1,13 @@
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+div#root {
+    width: 100%;
+}
+body{
+  background-color: #fff;
+  place-items: start;
+}
