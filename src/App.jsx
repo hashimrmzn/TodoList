@@ -22,6 +22,7 @@ function App() {
 
   return (
     <Box
+  
       sx={{
         display: 'flex',
         flexDirection: 'column',
@@ -29,6 +30,7 @@ function App() {
         px: { xs: 2, sm: 4 },
         py: { xs: 2, sm: 4 },
         backgroundColor: '#f8f8f8',
+        overflowX: 'hidden'
       }}
     >
       <Header />
