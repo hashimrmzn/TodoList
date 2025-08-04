@@ -7,7 +7,7 @@ function Displayitems({ singleitem, onDelete }) {
     <Box
       sx={{
         mt: 3,
-        p: 2,
+        p: 1,
         borderRadius: 2,
         backgroundColor: '#f9f9f9',
         display: 'flex',

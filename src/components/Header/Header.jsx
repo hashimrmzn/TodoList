@@ -12,14 +12,26 @@ function Header() {
                 }}
             >
                 <div className='container'>
-                    <Typography variant="h1" component="h1"
+                    <Typography
+                        variant="h1"
+                        component="h1"
                         sx={{
                             color: "#0a0a0a",
-                            textAlign:"center"
+                            textAlign: "center",
+                            fontSize: {
+                                xs: "2rem",  
+                                sm: "3rem",   
+                                md: "4rem",   
+                                lg: "5rem",   
+                            },
+                            fontWeight: "bold",
+                            mt: 4,
+                            mb: 2,
                         }}
                     >
                         My To-Do List
                     </Typography>
+
                 </div>
             </Box>
         </>
