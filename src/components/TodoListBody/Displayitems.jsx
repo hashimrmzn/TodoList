@@ -1,8 +1,9 @@
 import React from 'react';
 import { Box, Typography, IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
+import DoneIcon from '@mui/icons-material/Done';
 
-function Displayitems({ singleitem, onDelete }) {
+function Displayitems({ singleitem, onDelete,onComplete }) {
   return (
     <Box
       sx={{
@@ -16,14 +17,20 @@ function Displayitems({ singleitem, onDelete }) {
         border: '2px solid #000',
       }}
     >
-      <Typography
-        variant="h6"
-        fontWeight="bold"
-        color="text.primary"
-        sx={{ wordBreak: 'break-word', flex: 1 }}
-      >
-        {singleitem}
-      </Typography>
+  <Typography
+  variant="h6"
+  fontWeight="bold"
+  sx={{
+    wordBreak: 'break-word',
+    flex: 1,
+    textDecoration: singleitem.completed ? 'line-through' : 'none',
+    color: singleitem.completed ? '#000' : '#000'
+  }}
+>
+  {singleitem.text}
+</Typography>
+
+
 
       <IconButton
         aria-label="delete"
@@ -38,6 +45,10 @@ function Displayitems({ singleitem, onDelete }) {
       >
         <DeleteIcon />
       </IconButton>
+
+        <IconButton aria-label="complete" onClick={onComplete} sx={{ color: "green" }}>
+          <DoneIcon />
+        </IconButton>
     </Box>
   );
 }

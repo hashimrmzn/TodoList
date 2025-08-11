@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 
-function Footer({ totask, remain }) {
+function Footer({ totask, remainingCount,completedCount }) {
   return (
     <Box
       component="footer"
@@ -28,7 +28,16 @@ function Footer({ totask, remain }) {
           flex: 1,
         }}
       >
-        📋 Remaining Tasks: {remain}
+        📋 Remaining Tasks: {remainingCount}
+      </Typography>
+       <Typography
+        variant="h6"
+        sx={{
+          textAlign: { xs: 'center', sm: 'left' },
+          flex: 1,
+        }}
+      >
+        📋 Completed  Tasks: {completedCount}
       </Typography>
 
       <Typography

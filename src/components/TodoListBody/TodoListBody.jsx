@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, TextField, Button } from '@mui/material';
 import Displayitems from './Displayitems';
 
-function TodoListBody({ Todo, setTodo, Alltodo, handleClick, handleDelete }) {
+function TodoListBody({ Todo, setTodo, Alltodo, handleClick, handleDelete,handleComplete }) {
   const setTodoItem = (e) => setTodo(e.target.value);
 
   return (
@@ -15,7 +15,7 @@ function TodoListBody({ Todo, setTodo, Alltodo, handleClick, handleDelete }) {
           flexDirection: { xs: 'column', sm: 'row' },
           gap: 2,
           mb: 4,
-          mt:4
+          mt: 4
         }}
       >
         <TextField
@@ -25,21 +25,24 @@ function TodoListBody({ Todo, setTodo, Alltodo, handleClick, handleDelete }) {
           variant="outlined"
           fullWidth
           sx={{
+            border: 1,
+            outline:"none !important",
+            borderColor: "#fff705 !important",
             '& .MuiOutlinedInput-root': {
               fontWeight: 'bold',
               backgroundColor: 'white',
               '&:hover fieldset': {
-                borderColor: '#fff705',
+                borderColor: '#fff705 !important',
               },
               '&.Mui-focused fieldset': {
-                borderColor: '#fff705',
+                borderColor: '#fff705 !important',
               },
             },
             '& .MuiInputLabel-root': {
               fontWeight: 'bold',
               color: '#000',
               '&.Mui-focused': {
-                color: '#92904aff',
+                color: '#0f0f0fff !important',
               },
             },
             '& input': {
@@ -70,6 +73,7 @@ function TodoListBody({ Todo, setTodo, Alltodo, handleClick, handleDelete }) {
           key={index}
           singleitem={item}
           onDelete={() => handleDelete(index)}
+          onComplete={() => handleComplete(index)}
         />
       ))}
     </Box>

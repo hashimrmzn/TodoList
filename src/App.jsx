@@ -8,17 +8,29 @@ import { useState } from 'react';
 function App() {
   const [Alltodo, setAlltodo] = useState([]);
   const [Todo, setTodo] = useState('');
-
-  const handleAddTodo = (e) => {
-    e.preventDefault();
-    if (Todo.trim() === '') return;
-    setAlltodo([...Alltodo, Todo]);
-    setTodo('');
-  };
+ const handleAddTodo = (e) => {
+  e.preventDefault();
+  if (Todo.trim() === '') return;
+  setAlltodo([...Alltodo, { text: Todo, completed: false }]);
+  setTodo('');
+};
 
   const handleDelete = (indexToRemove) => {
     setAlltodo(Alltodo.filter((_, index) => index !== indexToRemove));
   };
+const handleComplete = (indexComplete) => {
+  setAlltodo(
+    Alltodo.map((item, index) =>
+      index === indexComplete
+        ? { ...item, completed: !item.completed }
+        : item
+    )
+  );
+};
+const completedCount = Alltodo.filter(item => item.completed).length;
+const remainingCount = Alltodo.filter(item => !item.completed).length;
+
+
 
   return (
     <Box
@@ -26,7 +38,7 @@ function App() {
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        minHeight: '100vh',
+        minHeight: '90vh',
         px: { xs: 2, sm: 4 },
         py: { xs: 2, sm: 4 },
         backgroundColor: '#f8f8f8',
@@ -42,10 +54,14 @@ function App() {
           Alltodo={Alltodo}
           handleClick={handleAddTodo}
           handleDelete={handleDelete}
+          handleComplete={handleComplete}
+         
         />
       </Box>
 
-      <Footer totask={Alltodo.length} remain={Alltodo.length} />
+      <Footer totask={Alltodo.length} 
+      remainingCount={remainingCount}
+      completedCount={completedCount}/>
     </Box>
   );
 }

@@ -11,3 +11,8 @@ body{
   background-color: #fff;
   place-items: start;
 }
+
+input:-internal-autofill-selected {
+    background-color: #ffff !important;
+    color: #fff705 !important;
+}
